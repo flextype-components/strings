@@ -44,6 +44,8 @@ use Flextype\Component\Strings;
 | <a href="#strings_ucfirst">`Strings::ucfirst()`</a> | Converts the first character of a UTF-8 string to upper case and leaves the other characters unchanged. |
 | <a href="#strings_trim">`Strings::trim()`</a> | Strip whitespace (or other characters) from the beginning and end of a string. |
 | <a href="#strings_capitalize">`Strings::capitalize()`</a> | Converts the first character of every word of string to upper case and the others to lower case. |
+| <a href="#strings_reverse">`Strings::reverse()`</a> | Reverses string. |
+
 
 <hr>
 
@@ -241,6 +243,15 @@ Converts the first character of every word of string to upper case and the other
 
 ```php
 $string = Strings::capitalize('that country was at the same stage of development as the United States in the 1940s');
+```
+
+
+#### <a name="strings_reverse"></a> Method: `Strings::reverse()`
+
+Reverses string.
+
+```php
+$string = Strings::reverse('SG-1 returns from an off-world mission');
 ```
 
 ### License

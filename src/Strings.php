@@ -326,4 +326,20 @@ class Strings
     {
         return trim($string, $character_mask);
     }
+
+    /**
+     * Reverses string.
+     *
+     * @param  string $string String
+     */
+    public static function reverse(string $string): string
+    {
+        $result = '';
+
+        for ($i = static::length($string); $i >= 0; $i--) {
+            $result .= static::substr($string, $i, 1);
+        }
+
+        return $result;
+    }
 }
