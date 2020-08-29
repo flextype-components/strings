@@ -168,4 +168,29 @@ class Strings
 
         return static::$cache['studly'][$key] = str_replace(' ', '', $string);
     }
+
+    /**
+     * Convert a string to snake case.
+     *
+     * @param  string  $string    String
+     * @param  string  $delimiter Delimeter
+     * @return string
+     */
+    public static function snake(string $string, string $delimiter = '_') : string
+    {
+        $key = $string;
+
+        if (isset(static::$cache['snake'][$key][$delimiter])) {
+            return static::$cache['snake'][$key][$delimiter];
+        }
+
+        if (! ctype_lower($string)) {
+            $value = preg_replace('/\s+/u', '', ucwords($string));
+
+            $string = static::lower(preg_replace('/(.)(?=[A-Z])/u', '$1'.$delimiter, $string));
+        }
+
+        return static::$cache['snake'][$key][$delimiter] = $string;
+    }
+
 }

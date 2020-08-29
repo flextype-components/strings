@@ -34,6 +34,7 @@ use Flextype\Component\Strings;
 | <a href="#strings_upper">`Strings::upper()`</a> | Convert the given string to upper-case. |
 | <a href="#strings_limit">`Strings::limit()`</a> | Limit the number of characters in a string. |
 | <a href="#strings_studly">`Strings::studly()`</a> | Convert a value to studly caps case. |
+| <a href="#strings_snake">`Strings::snake()`</a> | Convert a string to snake case. |
 
 <hr>
 
@@ -137,6 +138,13 @@ Convert a value to studly caps case.
 $string = Strings::studly('foo_bar');
 ```
 
+#### <a name="strings_snake"></a> Method: `Strings::snake()`
+
+Convert a string to snake case.
+
+```php
+$string = Strings::snake('fooBar');
+```
 
 
 ### License
