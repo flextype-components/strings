@@ -104,4 +104,14 @@ class Strings
         return mb_strlen($string);
     }
 
+    /**
+     * Convert the given string to lower-case.
+     *
+     * @param  string $string String
+     * @return string
+     */
+    public static function lower($string)
+    {
+        return mb_strtolower($string, 'UTF-8');
+    }
 }

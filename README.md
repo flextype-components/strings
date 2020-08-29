@@ -30,6 +30,7 @@ use Flextype\Component\Strings;
 | <a href="#strings_random">`Strings::random()`</a> | Creates a random string of characters. |
 | <a href="#strings_increment">`Strings::increment()`</a> | Add's `_1` to a string or increment the ending number to allow `_2`, `_3`, etc. |
 | <a href="#strings_length">`Strings::length()`</a> | Return the length of the given string. |
+| <a href="#strings_lower">`Strings::lower()`</a> | Convert the given string to lower-case. |
 
 <hr>
 
@@ -91,8 +92,17 @@ $string = Strings::increment('page_1');
 Return the length of the given string.
 
 ```php
-$length = Strings::length('SG-1 returns from an off-world mission to P9Y-3C3 with Daniel Jackson');
+$length = Strings::length('SG-1 returns from an off-world mission to P9Y-3C3');
 ```
+
+#### <a name="strings_lower"></a> Method: `Strings::lower()`
+
+Convert the given string to lower-case.
+
+```php
+$string = Strings::lower('SG-1 returns from an off-world mission to P9Y-3C3');
+```
+
 
 ### License
 [The MIT License (MIT)](https://github.com/flextype-components/strings/blob/master/LICENSE.txt)
