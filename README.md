@@ -40,6 +40,7 @@ use Flextype\Component\Strings;
 | <a href="#strings_words">`Strings::words()`</a> | Limit the number of words in a string. |
 | <a href="#strings_contains">`Strings::contains()`</a> | Determine if a given string contains a given substring. |
 | <a href="#strings_substr">`Strings::substr()`</a> | Returns the portion of string specified by the start and length parameters. |
+| <a href="#strings_ucfirst">`Strings::ucfirst()`</a> | Converts the first character of a UTF-8 string to upper case and leaves the other characters unchanged. |
 
 <hr>
 
@@ -205,6 +206,15 @@ $string = Strings::substr('SG-1 returns from an off-world mission to P9Y-3C3', 0
 // Returns the portion of string specified by the start 0 and length 4.
 $string = Strings::substr('SG-1 returns from an off-world mission to P9Y-3C3', 0, 4);
 ```
+
+#### <a name="strings_ucfirst"></a> Method: `Strings::ucfirst()`
+
+Converts the first character of a string to upper case and leaves the other characters unchanged.
+
+```php
+$string = Strings::ucfirst('daniel');
+```
+
 
 ### License
 [The MIT License (MIT)](https://github.com/flextype-components/strings/blob/master/LICENSE.txt)

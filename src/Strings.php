@@ -273,4 +273,15 @@ class Strings
 
         return false;
     }
+
+    /**
+     * Converts the first character of a string to upper case
+     * and leaves the other characters unchanged.
+     *
+     * @param  string $string String
+     */
+    public static function ucfirst(string $string): string
+    {
+        return static::upper(static::substr($string, 0, 1)) . static::substr($string, 1);
+    }
 }
