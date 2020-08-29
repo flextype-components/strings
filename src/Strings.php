@@ -218,4 +218,23 @@ class Strings
     {
         return static::snake($string, '-');
     }
+
+    /**
+     * Limit the number of words in a string.
+     *
+     * @param  string  $string String
+     * @param  int     $words  Words limit
+     * @param  string  $append Text to append to the string IF it gets truncated
+     * @return string
+     */
+    public static function words(string $string, int $words = 100, string $append = '...') : string
+    {
+        preg_match('/^\s*+(?:\S++\s*+){1,'.$words.'}/u', $string, $matches);
+
+        if (! isset($matches[0]) || static::length($string) === static::length($matches[0])) {
+            return $string;
+        }
+
+        return rtrim($matches[0]).$append;
+    }
 }

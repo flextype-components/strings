@@ -37,6 +37,7 @@ use Flextype\Component\Strings;
 | <a href="#strings_snake">`Strings::snake()`</a> | Convert a string to snake case. |
 | <a href="#strings_camel">`Strings::camel()`</a> | Convert a string to camel case. |
 | <a href="#strings_kebab">`Strings::kebab()`</a> | Convert a string to kebab case. |
+| <a href="#strings_words">`Strings::words()`</a> | Limit the number of words in a string. |
 
 
 <hr>
@@ -165,6 +166,20 @@ Convert a string to kebab case.
 $string = Strings::kebab('fooBar');
 ```
 
+#### <a name="strings_words"></a> Method: `Strings::words()`
+
+Limit the number of words in a string.
+
+```php
+// Get the number of words in a string with predefined limit settings
+$string = Strings::words('SG-1 returns from an off-world mission to P9Y-3C3');
+
+// Get the number of words in a string with limit 3
+$string = Strings::words('SG-1 returns from an off-world mission to P9Y-3C3', 3);
+
+// Get the number of words in a string with limit 3 and append 'read more...'
+$string = Strings::words('SG-1 returns from an off-world mission to P9Y-3C3', 3, 'read more...');
+```
 
 ### License
 [The MIT License (MIT)](https://github.com/flextype-components/strings/blob/master/LICENSE.txt)
