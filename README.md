@@ -33,6 +33,7 @@ use Flextype\Component\Strings;
 | <a href="#strings_lower">`Strings::lower()`</a> | Convert the given string to lower-case. |
 | <a href="#strings_upper">`Strings::upper()`</a> | Convert the given string to upper-case. |
 | <a href="#strings_limit">`Strings::limit()`</a> | Limit the number of characters in a string. |
+| <a href="#strings_studly">`Strings::studly()`</a> | Convert a value to studly caps case. |
 
 <hr>
 
@@ -126,6 +127,14 @@ $string = Strings::limit('SG-1 returns from an off-world mission to P9Y-3C3', 10
 
 // Get string with limit 10 and append 'read more...'
 $string = Strings::limit('SG-1 returns from an off-world mission to P9Y-3C3', 10, 'read more...');
+```
+
+#### <a name="strings_studly"></a> Method: `Strings::studly()`
+
+Convert a value to studly caps case.
+
+```php
+$string = Strings::studly('foo_bar');
 ```
 
 

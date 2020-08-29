@@ -7,6 +7,13 @@ namespace Flextype\Component\Strings;
 class Strings
 {
     /**
+     * The cache for words.
+     *
+     * @var array
+     */
+    protected static $cache = [];
+
+    /**
      * Removes any leading and traling slashes from a string.
      *
      * @param  string $string String with slashes
@@ -141,5 +148,24 @@ class Strings
     public static function upper(string $string) : string
     {
         return mb_strtoupper($string, 'UTF-8');
+    }
+
+    /**
+     * Convert a value to studly caps case.
+     *
+     * @param  string  $string String
+     * @return string
+     */
+    public static function studly(string $string) : string
+    {
+        $key = $string;
+
+        if (isset(static::$cache['studly'][$key])) {
+            return static::$cache['studly'][$key];
+        }
+
+        $string = ucwords(str_replace(['-', '_'], ' ', $string));
+
+        return static::$cache['studly'][$key] = str_replace(' ', '', $string);
     }
 }
