@@ -36,6 +36,8 @@ use Flextype\Component\Strings;
 | <a href="#strings_studly">`Strings::studly()`</a> | Convert a value to studly caps case. |
 | <a href="#strings_snake">`Strings::snake()`</a> | Convert a string to snake case. |
 | <a href="#strings_camel">`Strings::camel()`</a> | Convert a string to camel case. |
+| <a href="#strings_kebab">`Strings::kebab()`</a> | Convert a string to kebab case. |
+
 
 <hr>
 
@@ -155,6 +157,13 @@ Convert a string to camel case.
 $string = Strings::camel('foo_bar');
 ```
 
+#### <a name="strings_kebab"></a> Method: `Strings::kebab()`
+
+Convert a string to kebab case.
+
+```php
+$string = Strings::kebab('fooBar');
+```
 
 
 ### License

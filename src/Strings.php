@@ -208,4 +208,14 @@ class Strings
         return static::$cache['camel'][$string] = lcfirst(static::studly($string));
     }
 
+    /**
+     * Convert a string to kebab case.
+     *
+     * @param  string  $string String
+     * @return string
+     */
+    public static function kebab($string)
+    {
+        return static::snake($string, '-');
+    }
 }
