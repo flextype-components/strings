@@ -41,6 +41,7 @@ use Flextype\Component\Strings;
 | <a href="#strings_contains">`Strings::contains()`</a> | Determine if a given string contains a given substring. |
 | <a href="#strings_substr">`Strings::substr()`</a> | Returns the portion of string specified by the start and length parameters. |
 | <a href="#strings_ucfirst">`Strings::ucfirst()`</a> | Converts the first character of a UTF-8 string to upper case and leaves the other characters unchanged. |
+| <a href="#strings_trim">`Strings::trim()`</a> | Strip whitespace (or other characters) from the beginning and end of a string.|
 
 <hr>
 
@@ -215,6 +216,13 @@ Converts the first character of a string to upper case and leaves the other char
 $string = Strings::ucfirst('daniel');
 ```
 
+#### <a name="strings_trim"></a> Method: `Strings::trim()`
+
+ Strip whitespace (or other characters) from the beginning and end of a string.
+
+```php
+$string = Strings::trim(' daniel ');
+```
 
 ### License
 [The MIT License (MIT)](https://github.com/flextype-components/strings/blob/master/LICENSE.txt)

@@ -284,4 +284,16 @@ class Strings
     {
         return static::upper(static::substr($string, 0, 1)) . static::substr($string, 1);
     }
+
+    /**
+     * Strip whitespace (or other characters) from the beginning and end of a string.
+     *
+     * @param string $string         The string that will be trimmed.
+     * @param string $character_mask Optionally, the stripped characters can also be
+     *                               specified using the character_mask parameter..
+     */
+    public function trim(string $string, string $character_mask = " \t\n\r\0\x0B"): string
+    {
+        return trim($string, $character_mask);
+    }
 }
