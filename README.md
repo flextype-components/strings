@@ -31,6 +31,7 @@ use Flextype\Component\Strings;
 | <a href="#strings_increment">`Strings::increment()`</a> | Add's `_1` to a string or increment the ending number to allow `_2`, `_3`, etc. |
 | <a href="#strings_length">`Strings::length()`</a> | Return the length of the given string. |
 | <a href="#strings_lower">`Strings::lower()`</a> | Convert the given string to lower-case. |
+| <a href="#strings_upper">`Strings::upper()`</a> | Convert the given string to upper-case. |
 
 <hr>
 
@@ -101,6 +102,14 @@ Convert the given string to lower-case.
 
 ```php
 $string = Strings::lower('SG-1 returns from an off-world mission to P9Y-3C3');
+```
+
+#### <a name="strings_upper"></a> Method: `Strings::upper()`
+
+Convert the given string to upper-case.
+
+```php
+$string = Strings::upper('SG-1 returns from an off-world mission to P9Y-3C3');
 ```
 
 

@@ -114,4 +114,15 @@ class Strings
     {
         return mb_strtolower($string, 'UTF-8');
     }
+
+    /**
+     * Convert the given string to upper-case.
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public static function upper($string)
+    {
+        return mb_strtoupper($string, 'UTF-8');
+    }
 }
