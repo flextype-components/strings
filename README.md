@@ -68,13 +68,13 @@ $string = Strings::quotesToEntities('some "text" here');
 
 ```php
 // Get random string with predefined settings
-$random_string = Strings::random();
+$string = Strings::random();
 
 // Get random string with custom length
-$random_string = Strings::random(10);
+$string = Strings::random(10);
 
 // Get random string with custom length and custom keyspace
-$random_string = Strings::random(4, '0123456789');
+$string = Strings::random(4, '0123456789');
 ```
 
 #### <a name="strings_increment"></a> Method: `Strings::increment()`
