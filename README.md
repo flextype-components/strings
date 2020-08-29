@@ -41,7 +41,8 @@ use Flextype\Component\Strings;
 | <a href="#strings_contains">`Strings::contains()`</a> | Determine if a given string contains a given substring. |
 | <a href="#strings_substr">`Strings::substr()`</a> | Returns the portion of string specified by the start and length parameters. |
 | <a href="#strings_ucfirst">`Strings::ucfirst()`</a> | Converts the first character of a UTF-8 string to upper case and leaves the other characters unchanged. |
-| <a href="#strings_trim">`Strings::trim()`</a> | Strip whitespace (or other characters) from the beginning and end of a string.|
+| <a href="#strings_trim">`Strings::trim()`</a> | Strip whitespace (or other characters) from the beginning and end of a string. |
+| <a href="#strings_capitalize">`Strings::capitalize()`</a> | Converts the first character of every word of string to upper case and the others to lower case. |
 
 <hr>
 
@@ -218,10 +219,18 @@ $string = Strings::ucfirst('daniel');
 
 #### <a name="strings_trim"></a> Method: `Strings::trim()`
 
- Strip whitespace (or other characters) from the beginning and end of a string.
+Strip whitespace (or other characters) from the beginning and end of a string.
 
 ```php
 $string = Strings::trim(' daniel ');
+```
+
+#### <a name="strings_capitalize"></a> Method: `Strings::capitalize()`
+
+Converts the first character of every word of string to upper case and the others to lower case.
+
+```php
+$string = Strings::capitalize('that country was at the same stage of development as the United States in the 1940s');
 ```
 
 ### License

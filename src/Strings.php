@@ -7,6 +7,7 @@ namespace Flextype\Component\Strings;
 use function ctype_lower;
 use function implode;
 use function lcfirst;
+use function mb_convert_case;
 use function mb_strimwidth;
 use function mb_strlen;
 use function mb_strpos;
@@ -21,6 +22,8 @@ use function rtrim;
 use function str_replace;
 use function trim;
 use function ucwords;
+
+use const MB_CASE_TITLE;
 
 class Strings
 {
@@ -283,6 +286,16 @@ class Strings
     public static function ucfirst(string $string): string
     {
         return static::upper(static::substr($string, 0, 1)) . static::substr($string, 1);
+    }
+
+    /**
+     * Converts the first character of every word of string to upper case and the others to lower case.
+     *
+     * @param  string $string String
+     */
+    public static function capitalize(string $string): string
+    {
+        return mb_convert_case($s, MB_CASE_TITLE, 'UTF-8');
     }
 
     /**
