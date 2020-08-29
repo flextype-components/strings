@@ -88,4 +88,20 @@ class Strings
         return isset($match[2]) ? $match[1] . $separator.($match[2] + 1) : $string . $separator . $first;
     }
 
+    /**
+     * Return the length of the given string.
+     *
+     * @param  string       $string   String to check
+     * @param  string|null  $encoding String encoding
+     * @return int
+     */
+    public static function length($string, $encoding = null)
+    {
+        if ($encoding) {
+            return mb_strlen($string, $encoding);
+        }
+
+        return mb_strlen($string);
+    }
+
 }
