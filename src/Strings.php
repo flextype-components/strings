@@ -95,7 +95,7 @@ class Strings
      * @param  string|null  $encoding String encoding
      * @return int
      */
-    public static function length($string, $encoding = null)
+    public static function length(string $string, $encoding = null) : int
     {
         if ($encoding) {
             return mb_strlen($string, $encoding);
@@ -105,12 +105,29 @@ class Strings
     }
 
     /**
+      * Limit the number of characters in a string.
+      *
+      * @param  string  $string String
+      * @param  int     $limit  Limit of characters
+      * @param  string  $append Text to append to the string IF it gets truncated
+      * @return string
+      */
+    public static function limit(string $string, int $limit = 100, string $append = '...') : string
+    {
+        if (mb_strwidth($string, 'UTF-8') <= $limit) {
+            return $string;
+        }
+
+        return rtrim(mb_strimwidth($string, 0, $limit, '', 'UTF-8')) . $append;
+    }
+
+    /**
      * Convert the given string to lower-case.
      *
      * @param  string $string String
      * @return string
      */
-    public static function lower($string)
+    public static function lower(string $string) : string
     {
         return mb_strtolower($string, 'UTF-8');
     }
@@ -121,7 +138,7 @@ class Strings
      * @param  string  $value
      * @return string
      */
-    public static function upper($string)
+    public static function upper(string $string) : string
     {
         return mb_strtoupper($string, 'UTF-8');
     }

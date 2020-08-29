@@ -32,6 +32,7 @@ use Flextype\Component\Strings;
 | <a href="#strings_length">`Strings::length()`</a> | Return the length of the given string. |
 | <a href="#strings_lower">`Strings::lower()`</a> | Convert the given string to lower-case. |
 | <a href="#strings_upper">`Strings::upper()`</a> | Convert the given string to upper-case. |
+| <a href="#strings_limit">`Strings::limit()`</a> | Limit the number of characters in a string. |
 
 <hr>
 
@@ -111,6 +112,22 @@ Convert the given string to upper-case.
 ```php
 $string = Strings::upper('SG-1 returns from an off-world mission to P9Y-3C3');
 ```
+
+#### <a name="strings_limit"></a> Method: `Strings::limit()`
+
+Limit the number of characters in a string.
+
+```php
+// Get string with predefined limit settings
+$string = Strings::limit('SG-1 returns from an off-world mission to P9Y-3C3');
+
+// Get string with limit 10
+$string = Strings::limit('SG-1 returns from an off-world mission to P9Y-3C3', 10);
+
+// Get string with limit 10 and append 'read more...'
+$string = Strings::limit('SG-1 returns from an off-world mission to P9Y-3C3', 10, 'read more...');
+```
+
 
 
 ### License
