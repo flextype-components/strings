@@ -39,6 +39,7 @@ use Flextype\Component\Strings;
 | <a href="#strings_kebab">`Strings::kebab()`</a> | Convert a string to kebab case. |
 | <a href="#strings_words">`Strings::words()`</a> | Limit the number of words in a string. |
 | <a href="#strings_contains">`Strings::contains()`</a> | Determine if a given string contains a given substring. |
+| <a href="#strings_substr">`Strings::substr()`</a> | Returns the portion of string specified by the start and length parameters. |
 
 <hr>
 
@@ -191,6 +192,18 @@ $result = Strings::contains('SG-1 returns from an off-world mission to P9Y-3C3',
 
 // Determine if a given string contains a given array of substrings.
 $result = Strings::contains('SG-1 returns from an off-world mission to P9Y-3C3', ['SG-1', 'P9Y-3C3']);
+```
+
+#### <a name="strings_substr"></a> Method: `Strings::substr()`
+
+Returns the portion of string specified by the start and length parameters.
+
+```php
+// Returns the portion of string specified by the start 0.
+$string = Strings::substr('SG-1 returns from an off-world mission to P9Y-3C3', 0);
+
+// Returns the portion of string specified by the start 0 and length 4.
+$string = Strings::substr('SG-1 returns from an off-world mission to P9Y-3C3', 0, 4);
 ```
 
 ### License

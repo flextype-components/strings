@@ -13,6 +13,7 @@ use function mb_strpos;
 use function mb_strtolower;
 use function mb_strtoupper;
 use function mb_strwidth;
+use function mb_substr;
 use function preg_match;
 use function preg_replace;
 use function random_int;
@@ -157,11 +158,27 @@ class Strings
         return mb_strtoupper($string, 'UTF-8');
     }
 
-        /**
-         * Convert a string to studly caps case.
-         *
-         * @param  string $string String
-         */
+    /**
+     * Returns the portion of string specified by the start and length parameters.
+     *
+     * @param  string   $string The string to extract the substring from.
+     * @param  int      $start  If start is non-negative, the returned string will
+     *                          start at the start'th position in $string, counting from zero.
+     *                          For instance, in the string 'abcdef', the character at position
+     *                          0 is 'a', the character at position 2 is 'c', and so forth.
+     * @param  int|null $length Maximum number of characters to use from string.
+     *                          If omitted or NULL is passed, extract all characters to the end of the string.
+     */
+    public static function substr(string $string, int $start, ?int $length = null): string
+    {
+        return mb_substr($string, $start, $length, 'UTF-8');
+    }
+
+    /**
+     * Convert a string to studly caps case.
+     *
+     * @param  string $string String
+     */
     public static function studly(string $string): string
     {
         $key = $string;
@@ -175,12 +192,12 @@ class Strings
         return static::$cache['studly'][$key] = str_replace(' ', '', $string);
     }
 
-        /**
-         * Convert a string to snake case.
-         *
-         * @param  string $string    String
-         * @param  string $delimiter Delimeter
-         */
+    /**
+     * Convert a string to snake case.
+     *
+     * @param  string $string    String
+     * @param  string $delimiter Delimeter
+     */
     public static function snake(string $string, string $delimiter = '_'): string
     {
         $key = $string;
