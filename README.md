@@ -35,6 +35,7 @@ use Flextype\Component\Strings;
 | <a href="#strings_limit">`Strings::limit()`</a> | Limit the number of characters in a string. |
 | <a href="#strings_studly">`Strings::studly()`</a> | Convert a value to studly caps case. |
 | <a href="#strings_snake">`Strings::snake()`</a> | Convert a string to snake case. |
+| <a href="#strings_camel">`Strings::camel()`</a> | Convert a string to camel case. |
 
 <hr>
 
@@ -145,6 +146,15 @@ Convert a string to snake case.
 ```php
 $string = Strings::snake('fooBar');
 ```
+
+#### <a name="strings_camel"></a> Method: `Strings::camel()`
+
+Convert a string to camel case.
+
+```php
+$string = Strings::camel('foo_bar');
+```
+
 
 
 ### License

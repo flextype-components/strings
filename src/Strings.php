@@ -151,7 +151,7 @@ class Strings
     }
 
     /**
-     * Convert a value to studly caps case.
+     * Convert a string to studly caps case.
      *
      * @param  string  $string String
      * @return string
@@ -191,6 +191,21 @@ class Strings
         }
 
         return static::$cache['snake'][$key][$delimiter] = $string;
+    }
+
+    /**
+     * Convert a string to camel case.
+     *
+     * @param  string  $string String
+     * @return string
+     */
+    public static function camel($string)
+    {
+        if (isset(static::$cache['camel'][$string])) {
+            return static::$cache['camel'][$string];
+        }
+
+        return static::$cache['camel'][$string] = lcfirst(static::studly($string));
     }
 
 }
