@@ -237,4 +237,22 @@ class Strings
 
         return rtrim($matches[0]).$append;
     }
+
+    /**
+     * Determine if a given string contains a given substring.
+     *
+     * @param  string           $haystack The string being checked.
+     * @param  string|string[]  $needles  The string to find in haystack.
+     * @return bool
+     */
+    public static function contains(string $haystack, $needles) : bool
+    {
+        foreach ((array) $needles as $needle) {
+            if ($needle !== '' && mb_strpos($haystack, $needle) !== false) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

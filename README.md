@@ -38,7 +38,7 @@ use Flextype\Component\Strings;
 | <a href="#strings_camel">`Strings::camel()`</a> | Convert a string to camel case. |
 | <a href="#strings_kebab">`Strings::kebab()`</a> | Convert a string to kebab case. |
 | <a href="#strings_words">`Strings::words()`</a> | Limit the number of words in a string. |
-
+| <a href="#strings_contains">`Strings::contains()`</a> | Determine if a given string contains a given substring. |
 
 <hr>
 
@@ -179,6 +179,18 @@ $string = Strings::words('SG-1 returns from an off-world mission to P9Y-3C3', 3)
 
 // Get the number of words in a string with limit 3 and append 'read more...'
 $string = Strings::words('SG-1 returns from an off-world mission to P9Y-3C3', 3, 'read more...');
+```
+
+#### <a name="strings_contains"></a> Method: `Strings::contains()`
+
+Determine if a given string contains a given substring.
+
+```php
+// Determine if a given string contains a given substring.
+$result = Strings::contains('SG-1 returns from an off-world mission to P9Y-3C3', 'SG-1');
+
+// Determine if a given string contains a given array of substrings.
+$result = Strings::contains('SG-1 returns from an off-world mission to P9Y-3C3', ['SG-1', 'P9Y-3C3']);
 ```
 
 ### License
