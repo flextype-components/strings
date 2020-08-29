@@ -322,7 +322,7 @@ class Strings
      * @param string $character_mask Optionally, the stripped characters can also be
      *                               specified using the character_mask parameter..
      */
-    public function trim(string $string, string $character_mask = " \t\n\r\0\x0B"): string
+    public static function trim(string $string, string $character_mask = " \t\n\r\0\x0B"): string
     {
         return trim($string, $character_mask);
     }
