@@ -413,13 +413,13 @@ class Strings
             return $string;
         }
 
-        $pos = mb_strrpos($string, $search);
+        $position = mb_strrpos($string, $search);
 
-        if ($pos === false) {
+        if ($position === false) {
             return $string;
         }
 
-        return static::substr($string, 0, $pos);
+        return static::substr($string, 0, $position);
     }
 
     /**
