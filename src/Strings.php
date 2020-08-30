@@ -557,13 +557,13 @@ class Strings
         return $result;
     }
 
-  /**
-   * Replace the first occurrence of a given value in the string.
-   *
-   * @param  string $string  String
-   * @param  string $search  Search
-   * @param  string $replace Replace
-   */
+    /**
+     * Replace the first occurrence of a given value in the string.
+     *
+     * @param  string $string  String
+     * @param  string $search  Search
+     * @param  string $replace Replace
+     */
     public static function replaceFirst(string $string, string $search, string $replace): string
     {
         if ($search === '') {
@@ -579,13 +579,13 @@ class Strings
         return $search;
     }
 
-  /**
-   * Replace the last occurrence of a given value in the string.
-   *
-   * @param  string $string  String
-   * @param  string $search  Search
-   * @param  string $replace Replace
-   */
+    /**
+     * Replace the last occurrence of a given value in the string.
+     *
+     * @param  string $string  String
+     * @param  string $search  Search
+     * @param  string $replace Replace
+     */
     public static function replaceLast(string $string, string $search, string $replace): string
     {
         $position = strrpos($string, $search);
@@ -597,12 +597,12 @@ class Strings
         return $subject;
     }
 
-  /**
-   * Begin a string with a single instance of a given value.
-   *
-   * @param  string $string String
-   * @param  string $prefix Prefix
-   */
+    /**
+     * Begin a string with a single instance of a given value.
+     *
+     * @param  string $string String
+     * @param  string $prefix Prefix
+     */
     public static function start(string $string, string $prefix): string
     {
         $quoted = preg_quote($prefix, '/');
@@ -610,12 +610,12 @@ class Strings
         return $prefix . preg_replace('/^(?:' . $quoted . ')+/u', '', $string);
     }
 
-      /**
-       * Determine if a given string starts with a given substring.
-       *
-       * @param  string          $haystack Haystack
-       * @param  string|string[] $needles  needles
-       */
+    /**
+     * Determine if a given string starts with a given substring.
+     *
+     * @param  string          $haystack Haystack
+     * @param  string|string[] $needles  needles
+     */
     public static function startsWith(string $haystack, $needles): bool
     {
         foreach ((array) $needles as $needle) {
