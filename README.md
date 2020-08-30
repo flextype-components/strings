@@ -48,6 +48,10 @@ use Flextype\Component\Strings;
 | <a href="#strings_segment">`Strings::segment()`</a> | Get a segment from a string based on a delimiter. Returns an empty string when the offset doesn't exist. Use a negative index to start counting from the last element. |
 | <a href="#strings_firstSegment">`Strings::firstSegment()`</a> | Get the first segment from a string based on a delimiter. |
 | <a href="#strings_lastSegment">`Strings::lastSegment()`</a> | Get the last segment from a string based on a delimiter. |
+| <a href="#strings_before">`Strings::before()`</a> | Get the portion of a string before the first occurrence of a given value. |
+| <a href="#strings_beforeLast">`Strings::beforeLast()`</a> | Get the portion of a string before the last occurrence of a given value. |
+| <a href="#strings_after">`Strings::after()`</a> | Return the remainder of a string after the first occurrence of a given value. |
+| <a href="#strings_afterLast">`Strings::afterLast()`</a> | Return the remainder of a string after the last occurrence of a given value. |
 
 <hr>
 
@@ -295,6 +299,38 @@ $string = Strings::lastSegment('SG-1 returns from an off-world mission');
 
 // Get a last segment from a string based on a delimiter '-'.
 $string = Strings::lastSegment('SG-1 returns from an off-world mission', '-');
+```
+
+#### <a name="strings_before"></a> Method: `Strings::before()`
+
+Get the portion of a string before the first occurrence of a given value.
+
+```php
+$string = Strings::before('SG-1 returns from an off-world mission', 'mission');
+```
+
+#### <a name="strings_beforeLast"></a> Method: `Strings::beforeLast()`
+
+Get the portion of a string before the last occurrence of a given value.
+
+```php
+$string = Strings::beforeLast('SG-1 returns from an off-world mission', 'mission');
+```
+
+#### <a name="strings_after"></a> Method: `Strings::after()`
+
+Return the remainder of a string after the first occurrence of a given value.
+
+```php
+$string = Strings::after('SG-1 returns from an off-world mission', 'SG-1');
+```
+
+#### <a name="strings_afterLast"></a> Method: `Strings::strings_afterLast()`
+
+Return the remainder of a string after the last occurrence of a given value.
+
+```php
+$string = Strings::afterLast('SG-1 returns from an off-world mission', 'SG-1');
 ```
 
 ### License

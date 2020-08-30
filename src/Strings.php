@@ -14,6 +14,7 @@ use function mb_convert_case;
 use function mb_strimwidth;
 use function mb_strlen;
 use function mb_strpos;
+use function mb_strrpos;
 use function mb_strtolower;
 use function mb_strtoupper;
 use function mb_strwidth;
@@ -387,5 +388,69 @@ class Strings
     public function lastSegment(string $string, string $delimiter = ' '): string
     {
         return static::segment($string, -1, $delimiter);
+    }
+
+    /**
+     * Get the portion of a string before the first occurrence of a given value.
+     *
+     * @param string $string String
+     * @param string $search Search
+     */
+    public static function before(string $string, string $search): string
+    {
+        return $search === '' ? $string : explode($search, $string)[0];
+    }
+
+    /**
+     * Get the portion of a string before the last occurrence of a given value.
+     *
+     * @param string $string String
+     * @param string $search Search
+     */
+    public static function beforeLast(string $string, string $search): string
+    {
+        if ($search === '') {
+            return $string;
+        }
+
+        $pos = mb_strrpos($string, $search);
+
+        if ($pos === false) {
+            return $string;
+        }
+
+        return static::substr($string, 0, $pos);
+    }
+
+    /**
+     * Return the remainder of a string after the first occurrence of a given value.
+     *
+     * @param string $string String
+     * @param string $search Search
+     */
+    public static function after(string $string, string $search): string
+    {
+        return $search === '' ? $string : array_reverse(explode($search, $string, 2))[0];
+    }
+
+    /**
+     * Return the remainder of a string after the last occurrence of a given value.
+     *
+     * @param string $string String
+     * @param string $search Search
+     */
+    public static function afterLast(string $string, string $search): string
+    {
+        if ($search === '') {
+            return $string;
+        }
+
+        $position = mb_strrpos($string, (string) $search);
+
+        if ($position === false) {
+            return $string;
+        }
+
+        return static::substr($string, $position + static::length($search));
     }
 }
