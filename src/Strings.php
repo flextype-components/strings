@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Flextype\Component\Strings;
 
+use function abs;
+use function array_reverse;
 use function ctype_lower;
+use function explode;
 use function implode;
 use function lcfirst;
 use function mb_convert_case;
@@ -341,5 +344,48 @@ class Strings
         }
 
         return $result;
+    }
+
+    /**
+     * Get a segment from a string based on a delimiter.
+     * Returns an empty string when the offset doesn't exist.
+     * Use a negative index to start counting from the last element.
+     *
+     * @param string $string    String
+     * @param string $delimiter Delimeter
+     * @param int    $index     Index
+     */
+    public function segment(string $string, int $index, string $delimiter = ' '): string
+    {
+        $segments = explode($delimiter, $string);
+
+        if ($index < 0) {
+            $segments = array_reverse($segments);
+            $index    = abs($index) - 1;
+        }
+
+        return $segments[$index] ?? '';
+    }
+
+    /**
+     * Get the first segment from a string based on a delimiter.
+     *
+     * @param string $string    String
+     * @param string $delimiter Delimeter
+     */
+    public function firstSegment(string $string, string $delimiter = ' '): string
+    {
+        return static::segment($string, 0, $delimiter);
+    }
+
+    /**
+     * Get the last segment from a string based on a delimiter.
+     *
+     * @param string $string    String
+     * @param string $delimiter Delimeter
+     */
+    public function lastSegment(string $string, string $delimiter = ' '): string
+    {
+        return static::segment($string, -1, $delimiter);
     }
 }

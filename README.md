@@ -45,7 +45,14 @@ use Flextype\Component\Strings;
 | <a href="#strings_trim">`Strings::trim()`</a> | Strip whitespace (or other characters) from the beginning and end of a string. |
 | <a href="#strings_capitalize">`Strings::capitalize()`</a> | Converts the first character of every word of string to upper case and the others to lower case. |
 | <a href="#strings_reverse">`Strings::reverse()`</a> | Reverses string. |
-
+| <a href="#strings_segment">`Strings::segment()`</a> | Get a segment from a string based on a delimiter.
+Returns an empty string when the offset doesn't exist.
+Use a negative index to start counting from the last element. |
+| <a href="#strings_segment">`Strings::segment()`</a> | Get a segment from a string based on a delimiter.
+Returns an empty string when the offset doesn't exist.
+Use a negative index to start counting from the last element. |
+| <a href="#strings_firstSegment">`Strings::firstSegment()`</a> | Get the first segment from a string based on a delimiter. |
+| <a href="#strings_lastSegment">`Strings::lastSegment()`</a> | Get the last segment from a string based on a delimiter. |
 
 <hr>
 
@@ -252,6 +259,47 @@ Reverses string.
 
 ```php
 $string = Strings::reverse('SG-1 returns from an off-world mission');
+```
+
+#### <a name="strings_segment"></a> Method: `Strings::segment()`
+
+Get a segment from a string based on a delimiter.
+Returns an empty string when the offset doesn't exist.
+Use a negative index to start counting from the last element.
+
+```php
+// Get a segment 1 from a string based on a predefined delimiter.
+$string = Strings::segment('SG-1 returns from an off-world mission', 1);
+
+// Get a segment 1 from a string based on a delimiter '-'.
+$string = Strings::segment('SG-1 returns from an off-world mission', 1, '-');
+
+// Get a segment 1 from a string starting from the last based on a delimiter '-'.
+$string = Strings::segment('SG-1 returns from an off-world mission', -1, '-');
+```
+
+#### <a name="strings_firstSegment"></a> Method: `Strings::firstSegment()`
+
+Get the first segment from a string based on a delimiter.
+
+```php
+// Get a first segment from a string based on a predefined delimiter.
+$string = Strings::firstSegment('SG-1 returns from an off-world mission');
+
+// Get a first segment from a string based on a delimiter '-'.
+$string = Strings::firstSegment('SG-1 returns from an off-world mission', '-');
+```
+
+#### <a name="strings_lastSegment"></a> Method: `Strings::lastSegment()`
+
+Get the last segment from a string based on a delimiter.
+
+```php
+// Get a last segment from a string based on a predefined delimiter.
+$string = Strings::lastSegment('SG-1 returns from an off-world mission');
+
+// Get a last segment from a string based on a delimiter '-'.
+$string = Strings::lastSegment('SG-1 returns from an off-world mission', '-');
 ```
 
 ### License
