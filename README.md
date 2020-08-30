@@ -325,7 +325,7 @@ Return the remainder of a string after the first occurrence of a given value.
 $string = Strings::after('SG-1 returns from an off-world mission', 'SG-1');
 ```
 
-#### <a name="strings_afterLast"></a> Method: `Strings::strings_afterLast()`
+#### <a name="strings_afterLast"></a> Method: `Strings::afterLast()`
 
 Return the remainder of a string after the last occurrence of a given value.
 
