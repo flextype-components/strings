@@ -109,7 +109,7 @@ Add's `_1` to a string or increment the ending number to allow `_2`, `_3`, etc.
 $string = Strings::increment('page_1');
 
 // Increment string with custom settings
-$string = Strings::increment('page_1', 1, '-');
+$string = Strings::increment('page-1', 1, '-');
 ```
 
 #### <a name="strings_length"></a> Method: `Strings::length()`
