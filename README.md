@@ -208,10 +208,9 @@ $result = Strings::contains('SG-1 returns from an off-world mission to P9Y-3C3',
 
 #### <a name="strings_containsAll"></a> Method: `Strings::containsAll()`
 
-Determine if a given string contains all array values.
+Determine if a given string contains a given array of substrings.
 
 ```php
-// Determine if a given string contains a given array of substrings.
 $result = Strings::containsAll('SG-1 returns from an off-world mission to P9Y-3C3', ['SG-1', 'P9Y-3C3']);
 ```
 
