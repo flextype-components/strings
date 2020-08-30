@@ -23,11 +23,15 @@ use function preg_match;
 use function preg_replace;
 use function random_int;
 use function rtrim;
+use function str_pad;
 use function str_replace;
 use function trim;
 use function ucwords;
 
 use const MB_CASE_TITLE;
+use const STR_PAD_BOTH;
+use const STR_PAD_LEFT;
+use const STR_PAD_RIGHT;
 
 class Strings
 {
@@ -452,5 +456,41 @@ class Strings
         }
 
         return static::substr($string, $position + static::length($search));
+    }
+
+    /**
+     * Pad both sides of a string with another.
+     *
+     * @param  string $string The input string.
+     * @param  int    $length If the value of pad_length is negative, less than, or equal to the length of the input string, no padding takes place, and input will be returned.
+     * @param  string $pad    The pad string may be truncated if the required number of padding characters can't be evenly divided by the pad_string's length.
+     */
+    public static function padBoth(string $string, int $length, string $pad = ' '): string
+    {
+        return str_pad($string, $length, $pad, STR_PAD_BOTH);
+    }
+
+    /**
+     * Pad the left side of a string with another.
+     *
+     * @param  string $string The input string.
+     * @param  int    $length If the value of pad_length is negative, less than, or equal to the length of the input string, no padding takes place, and input will be returned.
+     * @param  string $pad    The pad string may be truncated if the required number of padding characters can't be evenly divided by the pad_string's length.
+     */
+    public static function padLeft(string $string, int $length, string $pad = ' '): string
+    {
+        return str_pad($string, $length, $pad, STR_PAD_LEFT);
+    }
+
+    /**
+     * Pad the right side of a string with another.
+     *
+     * @param  string $string The input string.
+     * @param  int    $length If the value of pad_length is negative, less than, or equal to the length of the input string, no padding takes place, and input will be returned.
+     * @param  string $pad    The pad string may be truncated if the required number of padding characters can't be evenly divided by the pad_string's length.
+     */
+    public static function padRight(string $string, int $length, string $pad = ' '): string
+    {
+        return str_pad($string, $length, $pad, STR_PAD_RIGHT);
     }
 }

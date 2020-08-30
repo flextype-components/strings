@@ -52,6 +52,9 @@ use Flextype\Component\Strings;
 | <a href="#strings_beforeLast">`Strings::beforeLast()`</a> | Get the portion of a string before the last occurrence of a given value. |
 | <a href="#strings_after">`Strings::after()`</a> | Return the remainder of a string after the first occurrence of a given value. |
 | <a href="#strings_afterLast">`Strings::afterLast()`</a> | Return the remainder of a string after the last occurrence of a given value. |
+| <a href="#strings_padBoth">`Strings::padBoth()`</a> | Pad both sides of a string with another. |
+| <a href="#strings_padLeft">`Strings::padLeft()`</a> | Pad the left side of a string with another. |
+| <a href="#strings_padRight">`Strings::padRight()`</a> | Pad the right side of a string with another. |
 
 <hr>
 
@@ -334,6 +337,30 @@ Return the remainder of a string after the last occurrence of a given value.
 
 ```php
 $string = Strings::afterLast('SG-1 returns from an off-world mission', 'SG-1');
+```
+
+#### <a name="strings_padBoth"></a> Method: `Strings::padBoth()`
+
+Pad both sides of a string with another.
+
+```php
+$string = Strings::padBoth('SG-1 returns from an off-world mission', 50, '-');
+```
+
+#### <a name="strings_padRight"></a> Method: `Strings::padRight()`
+
+Pad the right side of a string with another.
+
+```php
+$string = Strings::padRight('SG-1 returns from an off-world mission', 50, '-');
+```
+
+#### <a name="strings_padLeft"></a> Method: `Strings::padLeft()`
+
+Pad the left side of a string with another.
+
+```php
+$string = Strings::padLeft('SG-1 returns from an off-world mission', 50, '-');
 ```
 
 ### License
