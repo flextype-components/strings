@@ -23,6 +23,7 @@ use Flextype\Component\Strings;
 
 | Method | Description |
 |---|---|
+| <a href="#strings_stripSpaces">`Strings::stripSpaces()`</a> | Strip all whitespaces from the given string. |
 | <a href="#strings_trimSlashes">`Strings::trimSlashes()`</a> | Removes any leading and trailing slashes from a string. |
 | <a href="#strings_reduceSlashes">`Strings::reduceSlashes()`</a> | Reduces multiple slashes in a string to single slashes. |
 | <a href="#strings_stripQuotes">`Strings::stripQuotes()`</a> | Removes single and double quotes from a string. |
@@ -59,6 +60,14 @@ use Flextype\Component\Strings;
 | <a href="#strings_padRight">`Strings::padRight()`</a> | Pad the right side of a string with another. |
 
 <hr>
+
+#### <a name="strings_stripSpaces"></a> Method: `Strings::stripSpaces()`
+
+Strip all whitespaces from the given string.
+
+```php
+$string = Strings::stripSpaces('SG-1 returns from an off-world mission');
+```
 
 #### <a name="strings_trimSlashes"></a> Method: `Strings::trimSlashes()`
 

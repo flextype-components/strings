@@ -518,4 +518,14 @@ class Strings
     {
         return str_pad($string, $length, $pad, STR_PAD_RIGHT);
     }
+
+    /**
+     * Strip all whitespaces from the given string.
+     *
+     * @param string $string The string to strip
+     */
+    public static function stripSpaces(string $string): string
+    {
+        return preg_replace('/\s+/', '', $string);
+    }
 }
