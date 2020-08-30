@@ -45,12 +45,7 @@ use Flextype\Component\Strings;
 | <a href="#strings_trim">`Strings::trim()`</a> | Strip whitespace (or other characters) from the beginning and end of a string. |
 | <a href="#strings_capitalize">`Strings::capitalize()`</a> | Converts the first character of every word of string to upper case and the others to lower case. |
 | <a href="#strings_reverse">`Strings::reverse()`</a> | Reverses string. |
-| <a href="#strings_segment">`Strings::segment()`</a> | Get a segment from a string based on a delimiter.
-Returns an empty string when the offset doesn't exist.
-Use a negative index to start counting from the last element. |
-| <a href="#strings_segment">`Strings::segment()`</a> | Get a segment from a string based on a delimiter.
-Returns an empty string when the offset doesn't exist.
-Use a negative index to start counting from the last element. |
+| <a href="#strings_segment">`Strings::segment()`</a> | Get a segment from a string based on a delimiter. Returns an empty string when the offset doesn't exist. Use a negative index to start counting from the last element. |
 | <a href="#strings_firstSegment">`Strings::firstSegment()`</a> | Get the first segment from a string based on a delimiter. |
 | <a href="#strings_lastSegment">`Strings::lastSegment()`</a> | Get the last segment from a string based on a delimiter. |
 
