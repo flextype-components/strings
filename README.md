@@ -43,6 +43,8 @@ use Flextype\Component\Strings;
 | <a href="#strings_substr">`Strings::substr()`</a> | Returns the portion of string specified by the start and length parameters. |
 | <a href="#strings_ucfirst">`Strings::ucfirst()`</a> | Converts the first character of a UTF-8 string to upper case and leaves the other characters unchanged. |
 | <a href="#strings_trim">`Strings::trim()`</a> | Strip whitespace (or other characters) from the beginning and end of a string. |
+| <a href="#strings_trimRight">`Strings::trimRight()`</a> | Strip whitespace (or other characters) from the end of a string. |
+| <a href="#strings_trimLeft">`Strings::trimLeft()`</a> | Strip whitespace (or other characters) from the beginning of a string. |
 | <a href="#strings_capitalize">`Strings::capitalize()`</a> | Converts the first character of every word of string to upper case and the others to lower case. |
 | <a href="#strings_reverse">`Strings::reverse()`</a> | Reverses string. |
 | <a href="#strings_segment">`Strings::segment()`</a> | Get a segment from a string based on a delimiter. Returns an empty string when the offset doesn't exist. Use a negative index to start counting from the last element. |
@@ -249,6 +251,22 @@ Strip whitespace (or other characters) from the beginning and end of a string.
 $string = Strings::trim(' daniel ');
 ```
 
+#### <a name="strings_trimRight"></a> Method: `Strings::trimRight()`
+
+Strip whitespace (or other characters) from the end of a string.
+
+```php
+$string = Strings::trimRight('daniel ');
+```
+
+#### <a name="strings_trimLeft"></a> Method: `Strings::trimLeft()`
+
+Strip whitespace (or other characters) from the beginning of a string.
+
+```php
+$string = Strings::trimLeft(' daniel');
+```
+
 #### <a name="strings_capitalize"></a> Method: `Strings::capitalize()`
 
 Converts the first character of every word of string to upper case and the others to lower case.
@@ -256,7 +274,6 @@ Converts the first character of every word of string to upper case and the other
 ```php
 $string = Strings::capitalize('that country was at the same stage of development as the United States in the 1940s');
 ```
-
 
 #### <a name="strings_reverse"></a> Method: `Strings::reverse()`
 

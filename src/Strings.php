@@ -10,6 +10,7 @@ use function ctype_lower;
 use function explode;
 use function implode;
 use function lcfirst;
+use function ltrim;
 use function mb_convert_case;
 use function mb_strimwidth;
 use function mb_strlen;
@@ -49,7 +50,7 @@ class Strings
      */
     public static function trimSlashes(string $string): string
     {
-        return trim($string, '/');
+        return static::trim($string, '/');
     }
 
     /**
@@ -95,7 +96,7 @@ class Strings
         }
 
         $pieces = [];
-        $max    = mb_strlen($keyspace, '8bit') - 1;
+        $max    = static::length($keyspace, '8bit') - 1;
 
         for ($i = 0; $i < $length; ++$i) {
             $pieces[] = $keyspace[random_int(0, $max)];
@@ -265,7 +266,7 @@ class Strings
             return $string;
         }
 
-        return rtrim($matches[0]) . $append;
+        return static::trimRight($matches[0]) . $append;
     }
 
     /**
@@ -333,6 +334,30 @@ class Strings
     public static function trim(string $string, string $character_mask = " \t\n\r\0\x0B"): string
     {
         return trim($string, $character_mask);
+    }
+
+    /**
+     * Strip whitespace (or other characters) from the beginning of a string.
+     *
+     * @param string $string         The string that will be trimmed.
+     * @param string $character_mask Optionally, the stripped characters can also be
+     *                               specified using the character_mask parameter..
+     */
+    public static function trimLeft(string $string, string $character_mask = " \t\n\r\0\x0B"): string
+    {
+        return ltrim($string, $character_mask);
+    }
+
+    /**
+     * Strip whitespace (or other characters) from the end of a string.
+     *
+     * @param string $string         The string that will be trimmed.
+     * @param string $character_mask Optionally, the stripped characters can also be
+     *                               specified using the character_mask parameter..
+     */
+    public static function trimRight(string $string, string $character_mask = " \t\n\r\0\x0B"): string
+    {
+        return rtrim($string, $character_mask);
     }
 
     /**
