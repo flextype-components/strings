@@ -105,7 +105,11 @@ $string = Strings::random(4, '0123456789');
 Add's `_1` to a string or increment the ending number to allow `_2`, `_3`, etc.
 
 ```php
+// Increment string with predefined settings
 $string = Strings::increment('page_1');
+
+// Increment string with custom settings
+$string = Strings::increment('page_1', 1, '-');
 ```
 
 #### <a name="strings_length"></a> Method: `Strings::length()`
