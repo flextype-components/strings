@@ -58,6 +58,13 @@ use Flextype\Component\Strings;
 | <a href="#strings_padBoth">`Strings::padBoth()`</a> | Pad both sides of a string with another. |
 | <a href="#strings_padLeft">`Strings::padLeft()`</a> | Pad the left side of a string with another. |
 | <a href="#strings_padRight">`Strings::padRight()`</a> | Pad the right side of a string with another. |
+| <a href="#strings_replaceArray">`Strings::replaceArray()`</a> | Replace a given value in the string sequentially with an array. |
+| <a href="#strings_replaceFirst">`Strings::replaceFirst()`</a> | Replace the first occurrence of a given value in the string. |
+| <a href="#strings_replaceLast">`Strings::replaceLast()`</a> | Replace the last occurrence of a given value in the string. |
+| <a href="#strings_start">`Strings::start()`</a> | Begin a string with a single instance of a given value. |
+| <a href="#strings_startsWith">`Strings::startsWith()`</a> | Determine if a given string starts with a given substring. |
+| <a href="#strings_endsWith">`Strings::endsWith()`</a> | Determine if a given string ends with a given substring. |
+| <a href="#strings_finish">`Strings::finish()`</a> | Cap a string with a single instance of a given value. |
 
 <hr>
 
@@ -387,6 +394,62 @@ Pad the left side of a string with another.
 
 ```php
 $string = Strings::padLeft('SG-1 returns from an off-world mission', 50, '-');
+```
+
+#### <a name="strings_replaceArray"></a> Method: `Strings::replaceArray()`
+
+Replace a given value in the string sequentially with an array.
+
+```php
+$string = Strings::replaceArray('SG-1 returns from an off-world mission', 'SG-1', ['SG-2']);
+```
+
+#### <a name="strings_replaceFirst"></a> Method: `Strings::replaceFirst()`
+
+Replace the first occurrence of a given value in the string.
+
+```php
+$string = Strings::replaceFirst('SG-1 returns from an off-world mission', 'SG-1', 'SG-2');
+```
+
+#### <a name="strings_replaceLast"></a> Method: `Strings::replaceLast()`
+
+Replace the last occurrence of a given value in the string.
+
+```php
+$string = Strings::replaceLast('SG-1 returns from an off-world mission', 'off-world', 'P9Y-3C3');
+```
+
+#### <a name="strings_start"></a> Method: `Strings::start()`
+
+Begin a string with a single instance of a given value.
+
+```php
+$string = Strings::start('movies/sg-1/season-5/episode-21/', '/');
+```
+
+#### <a name="strings_startsWith"></a> Method: `Strings::startsWith()`
+
+Determine if a given string starts with a given substring.
+
+```php
+$result = Strings::startsWith('/movies/sg-1/season-5/episode-21/', '/');
+```
+
+#### <a name="strings_endsWith"></a> Method: `Strings::endsWith()`
+
+Determine if a given string ends with a given substring.
+
+```php
+$result = Strings::endsWith('/movies/sg-1/season-5/episode-21/', '/');
+```
+
+#### <a name="strings_finish"></a> Method: `Strings::finish()`
+
+Cap a string with a single instance of a given value.
+
+```php
+$result = Strings::finish('/movies/sg-1/season-5/episode-21', '/');
 ```
 
 ### License

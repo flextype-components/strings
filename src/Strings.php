@@ -6,6 +6,7 @@ namespace Flextype\Component\Strings;
 
 use function abs;
 use function array_reverse;
+use function array_shift;
 use function ctype_lower;
 use function explode;
 use function implode;
@@ -21,11 +22,18 @@ use function mb_strtoupper;
 use function mb_strwidth;
 use function mb_substr;
 use function preg_match;
+use function preg_quote;
 use function preg_replace;
 use function random_int;
 use function rtrim;
 use function str_pad;
 use function str_replace;
+use function strlen;
+use function strncmp;
+use function strpos;
+use function strrpos;
+use function substr;
+use function substr_replace;
 use function trim;
 use function ucwords;
 
@@ -527,5 +535,125 @@ class Strings
     public static function stripSpaces(string $string): string
     {
         return preg_replace('/\s+/', '', $string);
+    }
+
+    /**
+     * Replace a given value in the string sequentially with an array.
+     *
+     * @param  string $string  String
+     * @param  string $search  Search
+     * @param  array  $replace Replace
+     */
+    public static function replaceArray(string $string, string $search, array $replace): string
+    {
+        $segments = explode($search, $string);
+
+        $result = array_shift($segments);
+
+        foreach ($segments as $segment) {
+            $result .= (array_shift($replace) ?? $search) . $segment;
+        }
+
+        return $result;
+    }
+
+  /**
+   * Replace the first occurrence of a given value in the string.
+   *
+   * @param  string $string  String
+   * @param  string $search  Search
+   * @param  string $replace Replace
+   */
+    public static function replaceFirst(string $string, string $search, string $replace): string
+    {
+        if ($search === '') {
+            return $string;
+        }
+
+        $position = strpos($string, $search);
+
+        if ($position !== false) {
+            return substr_replace($string, $replace, $position, strlen($search));
+        }
+
+        return $search;
+    }
+
+  /**
+   * Replace the last occurrence of a given value in the string.
+   *
+   * @param  string $string  String
+   * @param  string $search  Search
+   * @param  string $replace Replace
+   */
+    public static function replaceLast(string $string, string $search, string $replace): string
+    {
+        $position = strrpos($string, $search);
+
+        if ($position !== false) {
+            return substr_replace($string, $replace, $position, strlen($search));
+        }
+
+        return $subject;
+    }
+
+  /**
+   * Begin a string with a single instance of a given value.
+   *
+   * @param  string $string String
+   * @param  string $prefix Prefix
+   */
+    public static function start(string $string, string $prefix): string
+    {
+        $quoted = preg_quote($prefix, '/');
+
+        return $prefix . preg_replace('/^(?:' . $quoted . ')+/u', '', $string);
+    }
+
+      /**
+       * Determine if a given string starts with a given substring.
+       *
+       * @param  string          $haystack Haystack
+       * @param  string|string[] $needles  needles
+       */
+    public static function startsWith(string $haystack, $needles): bool
+    {
+        foreach ((array) $needles as $needle) {
+            if ((string) $needle !== '' && strncmp($haystack, $needle, strlen($needle)) === 0) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Determine if a given string ends with a given substring.
+     *
+     * @param  string          $haystack Haystack
+     * @param  string|string[] $needles  needles
+     */
+    public static function endsWith(string $haystack, $needles): bool
+    {
+        foreach ((array) $needles as $needle) {
+            if ($needle !== '' && substr($haystack, -strlen($needle)) === (string) $needle) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Cap a string with a single instance of a given value.
+     *
+     * @param  string $string String
+     * @param  string $cap    Cap
+     */
+    public static function finish(string $string, string $cap): string
+    {
+        $quoted = preg_quote($cap, '/');
+
+        return preg_replace('/(?:' . $quoted . ')+$/u', '', $string) . $cap;
     }
 }
