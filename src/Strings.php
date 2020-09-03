@@ -329,7 +329,7 @@ class Strings
      */
     public static function capitalize(string $string): string
     {
-        return mb_convert_case($s, MB_CASE_TITLE, 'UTF-8');
+        return mb_convert_case($string, MB_CASE_TITLE, 'UTF-8');
     }
 
     /**
