@@ -31,6 +31,7 @@ use Flextype\Component\Strings;
 | <a href="#strings_validEncoding">`Strings::validEncoding()`</a> | Checks if the string is valid in UTF-8 encoding. |
 | <a href="#strings_fixEncoding">`Strings::fixEncoding()`</a> | Removes all invalid UTF-8 characters from a string. |
 | <a href="#strings_normalizeNewLines">`Strings::normalizeNewLines()`</a> | Standardize line endings to unix-like. |
+| <a href="#strings_normalizeSpaces">`Strings::normalizeSpaces()`</a> | Normalize white-spaces to a single space. |
 | <a href="#strings_random">`Strings::random()`</a> | Creates a random string of characters. |
 | <a href="#strings_increment">`Strings::increment()`</a> | Add's `_1` to a string or increment the ending number to allow `_2`, `_3`, etc. |
 | <a href="#strings_wordsCount">`Strings::wordsCount()`</a> | Return information about words used in a string. |
@@ -137,6 +138,14 @@ Standardize line endings to unix-like.
 
 ```php
 $string = Strings::normalizeNewLines('SG-1 returns from an off-world mission');
+```
+
+#### <a name="strings_normalizeSpaces"></a> Method: `Strings::normalizeSpaces()`
+
+Standardize line endings to unix-like.
+
+```php
+$string = Strings::normalizeSpaces('SG-1  returns  from  an  off-world  mission');
 ```
 
 #### <a name="strings_random"></a> Method: `Strings::random()`

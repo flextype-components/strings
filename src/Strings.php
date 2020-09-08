@@ -130,6 +130,16 @@ class Strings
     }
 
     /**
+     * Normalize white-spaces to a single space.
+     *
+     * @param  string $string String
+     */
+    public static function normalizeSpaces(string $string): string
+    {
+        return preg_replace('/\s+/', ' ', $string);
+    }
+
+    /**
      * Creates a random string of characters.
      *
      * @param  int    $length   The number of characters. Default is 16
