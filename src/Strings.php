@@ -120,6 +120,16 @@ class Strings
     }
 
     /**
+     * Standardize line endings to unix-like.
+     *
+     * @param  string $string String
+     */
+    public static function normalizeNewLines(string $string): string
+    {
+        return str_replace(["\r\n", "\r"], "\n", $string);
+    }
+
+    /**
      * Creates a random string of characters.
      *
      * @param  int    $length   The number of characters. Default is 16
