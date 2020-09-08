@@ -278,6 +278,21 @@ class Strings
     }
 
     /**
+     * Return information about words used in a string
+     *
+     * @param  string $string   String
+     * @param  int    $format   Specify the return value of this function. The current supported values are:
+     *                          0 - returns the number of words found
+     *                          1 - returns an array containing all the words found inside the string
+     *                          2 - returns an associative array, where the key is the numeric position of the word inside the string and the value is the actual word itself
+     * @param  string $charlist A list of additional characters which will be considered as 'word'
+     */
+    public static function wordsCount(string $string, int $format = 0, string $charlist = '')
+    {
+        return str_word_count($string, $format, $charlist);
+    }
+
+    /**
      * Determine if a given string contains a given substring.
      *
      * @param  string          $haystack The string being checked.

@@ -30,6 +30,7 @@ use Flextype\Component\Strings;
 | <a href="#strings_quotesToEntities">`Strings::quotesToEntities()`</a> | Convert single and double quotes to entities. |
 | <a href="#strings_random">`Strings::random()`</a> | Creates a random string of characters. |
 | <a href="#strings_increment">`Strings::increment()`</a> | Add's `_1` to a string or increment the ending number to allow `_2`, `_3`, etc. |
+| <a href="#strings_wordsCount">`Strings::wordsCount()`</a> | Return information about words used in a string. |
 | <a href="#strings_length">`Strings::length()`</a> | Return the length of the given string. |
 | <a href="#strings_lower">`Strings::lower()`</a> | Convert the given string to lower-case. |
 | <a href="#strings_upper">`Strings::upper()`</a> | Convert the given string to upper-case. |
@@ -131,6 +132,21 @@ $string = Strings::increment('page_1');
 
 // Increment string with custom settings
 $string = Strings::increment('page-1', 1, '-');
+```
+
+#### <a name="strings_wordsCount"></a> Method: `Strings::wordsCount()`
+
+Return information about words used in a string
+
+```php
+// Returns the number of words found
+$result = Strings::wordsCount('SG-1 returns from an off-world mission to P9Y-3C3 with Daniel Jackson');
+
+// Returns an array containing all the words found inside the string
+$result = Strings::wordsCount('SG-1 returns from an off-world mission to P9Y-3C3 with Daniel Jackson', 1)
+
+// Returns an associative array, where the key is the numeric position of the word inside the string and the value is the actual word itself
+$result = Strings::wordsCount('SG-1 returns from an off-world mission to P9Y-3C3 with Daniel Jackson', 2)
 ```
 
 #### <a name="strings_length"></a> Method: `Strings::length()`
