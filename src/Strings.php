@@ -331,6 +331,23 @@ class Strings
     }
 
     /**
+     * Determine if a given string contains any of array values.
+     *
+     * @param  string   $haystack The string being checked.
+     * @param  string[] $needles  The array of strings to find in haystack.
+     */
+    public static function containsAny(string $haystack, array $needles): bool
+    {
+        foreach ($needles as $needle) {
+            if (static::contains($haystack, $needle)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
      * Converts the first character of a string to upper case
      * and leaves the other characters unchanged.
      *

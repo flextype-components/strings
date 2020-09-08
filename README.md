@@ -42,6 +42,7 @@ use Flextype\Component\Strings;
 | <a href="#strings_words">`Strings::words()`</a> | Limit the number of words in a string. |
 | <a href="#strings_contains">`Strings::contains()`</a> | Determine if a given string contains a given substring. |
 | <a href="#strings_containsAll">`Strings::containsAll()`</a> | Determine if a given string contains all array values. |
+| <a href="#strings_containsAny">`Strings::containsAny()`</a> | Determine if a given string contains any of array values. |
 | <a href="#strings_substr">`Strings::substr()`</a> | Returns the portion of string specified by the start and length parameters. |
 | <a href="#strings_ucfirst">`Strings::ucfirst()`</a> | Converts the first character of a UTF-8 string to upper case and leaves the other characters unchanged. |
 | <a href="#strings_trim">`Strings::trim()`</a> | Strip whitespace (or other characters) from the beginning and end of a string. |
@@ -255,6 +256,14 @@ Determine if a given string contains a given array of substrings.
 
 ```php
 $result = Strings::containsAll('SG-1 returns from an off-world mission to P9Y-3C3', ['SG-1', 'P9Y-3C3']);
+```
+
+#### <a name="strings_containsAny"></a> Method: `Strings::containsAny()`
+
+Determine if a given string contains any of array values.
+
+```php
+$result = Strings::containsAny('SG-1 returns from an off-world mission to P9Y-3C3', ['SG-1', 'P9Y-3C3']);
 ```
 
 #### <a name="strings_substr"></a> Method: `Strings::substr()`
