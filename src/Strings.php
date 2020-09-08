@@ -393,7 +393,7 @@ class Strings
      * @param string $delimiter Delimeter
      * @param int    $index     Index
      */
-    public function segment(string $string, int $index, string $delimiter = ' '): string
+    public static function segment(string $string, int $index, string $delimiter = ' '): string
     {
         $segments = explode($delimiter, $string);
 
@@ -411,7 +411,7 @@ class Strings
      * @param string $string    String
      * @param string $delimiter Delimeter
      */
-    public function firstSegment(string $string, string $delimiter = ' '): string
+    public static function firstSegment(string $string, string $delimiter = ' '): string
     {
         return static::segment($string, 0, $delimiter);
     }
@@ -422,7 +422,7 @@ class Strings
      * @param string $string    String
      * @param string $delimiter Delimeter
      */
-    public function lastSegment(string $string, string $delimiter = ' '): string
+    public static function lastSegment(string $string, string $delimiter = ' '): string
     {
         return static::segment($string, -1, $delimiter);
     }
