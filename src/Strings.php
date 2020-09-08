@@ -9,7 +9,10 @@ use function array_reverse;
 use function array_shift;
 use function ctype_lower;
 use function explode;
+use function hash;
+use function hash_algos;
 use function implode;
+use function in_array;
 use function lcfirst;
 use function ltrim;
 use function mb_convert_case;
@@ -28,6 +31,7 @@ use function random_int;
 use function rtrim;
 use function str_pad;
 use function str_replace;
+use function str_word_count;
 use function strlen;
 use function strncmp;
 use function strpos;
@@ -670,5 +674,22 @@ class Strings
         $quoted = preg_quote($cap, '/');
 
         return preg_replace('/(?:' . $quoted . ')+$/u', '', $string) . $cap;
+    }
+
+    /**
+     * Generate a hash string from the input string.
+     *
+     * @param  string $string     String
+     * @param  string $algorithm  Name of selected hashing algorithm (i.e. "md5", "sha256", "haval160,4", etc..).
+     *                            For a list of supported algorithms see hash_algos(). Default is md5.
+     * @param  string $raw_output When set to TRUE, outputs raw binary data. FALSE outputs lowercase hexits. Default is FALSE
+     */
+    public static function hash(string $string, string $algorithm = 'md5', bool $raw_output = false): string
+    {
+        if (in_array($algorithm, hash_algos())) {
+            return hash($algorithm, $string, $raw_output);
+        }
+
+        return $string;
     }
 }

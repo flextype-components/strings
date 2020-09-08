@@ -66,6 +66,7 @@ use Flextype\Component\Strings;
 | <a href="#strings_startsWith">`Strings::startsWith()`</a> | Determine if a given string starts with a given substring. |
 | <a href="#strings_endsWith">`Strings::endsWith()`</a> | Determine if a given string ends with a given substring. |
 | <a href="#strings_finish">`Strings::finish()`</a> | Cap a string with a single instance of a given value. |
+| <a href="#strings_hash">`Strings::hash()`</a> | Generate a hash string from the input string. |
 
 <hr>
 
@@ -466,6 +467,21 @@ Cap a string with a single instance of a given value.
 
 ```php
 $result = Strings::finish('/movies/sg-1/season-5/episode-21', '/');
+```
+
+#### <a name="strings_hash"></a> Method: `Strings::hash()`
+
+Generate a hash string from the input string.
+
+```php
+// Get string hash with predefined settings
+$result = Strings::hash('SG-1 returns from an off-world mission');
+
+// Get string hash with hashed with sha256 algorithm
+$result = Strings::hash('SG-1 returns from an off-world mission', 'sha256');
+
+// Get string hash with hashed with sha256 algorithm and with raw output
+$result = Strings::hash('SG-1 returns from an off-world mission', 'sha256', true);
 ```
 
 ### License
