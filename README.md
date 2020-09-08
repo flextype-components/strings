@@ -30,6 +30,7 @@ use Flextype\Component\Strings;
 | <a href="#strings_quotesToEntities">`Strings::quotesToEntities()`</a> | Convert single and double quotes to entities. |
 | <a href="#strings_random">`Strings::random()`</a> | Creates a random string of characters. |
 | <a href="#strings_increment">`Strings::increment()`</a> | Add's `_1` to a string or increment the ending number to allow `_2`, `_3`, etc. |
+| <a href="#strings_wordsCount">`Strings::wordsCount()`</a> | Return information about words used in a string. |
 | <a href="#strings_length">`Strings::length()`</a> | Return the length of the given string. |
 | <a href="#strings_lower">`Strings::lower()`</a> | Convert the given string to lower-case. |
 | <a href="#strings_upper">`Strings::upper()`</a> | Convert the given string to upper-case. |
@@ -48,6 +49,7 @@ use Flextype\Component\Strings;
 | <a href="#strings_trimLeft">`Strings::trimLeft()`</a> | Strip whitespace (or other characters) from the beginning of a string. |
 | <a href="#strings_capitalize">`Strings::capitalize()`</a> | Converts the first character of every word of string to upper case and the others to lower case. |
 | <a href="#strings_reverse">`Strings::reverse()`</a> | Reverses string. |
+| <a href="#strings_segments">`Strings::segments()`</a> | Get array of segments from a string based on a delimiter. |
 | <a href="#strings_segment">`Strings::segment()`</a> | Get a segment from a string based on a delimiter. Returns an empty string when the offset doesn't exist. Use a negative index to start counting from the last element. |
 | <a href="#strings_firstSegment">`Strings::firstSegment()`</a> | Get the first segment from a string based on a delimiter. |
 | <a href="#strings_lastSegment">`Strings::lastSegment()`</a> | Get the last segment from a string based on a delimiter. |
@@ -65,6 +67,7 @@ use Flextype\Component\Strings;
 | <a href="#strings_startsWith">`Strings::startsWith()`</a> | Determine if a given string starts with a given substring. |
 | <a href="#strings_endsWith">`Strings::endsWith()`</a> | Determine if a given string ends with a given substring. |
 | <a href="#strings_finish">`Strings::finish()`</a> | Cap a string with a single instance of a given value. |
+| <a href="#strings_hash">`Strings::hash()`</a> | Generate a hash string from the input string. |
 
 <hr>
 
@@ -131,6 +134,21 @@ $string = Strings::increment('page_1');
 
 // Increment string with custom settings
 $string = Strings::increment('page-1', 1, '-');
+```
+
+#### <a name="strings_wordsCount"></a> Method: `Strings::wordsCount()`
+
+Return information about words used in a string
+
+```php
+// Returns the number of words found
+$result = Strings::wordsCount('SG-1 returns from an off-world mission to P9Y-3C3 with Daniel Jackson');
+
+// Returns an array containing all the words found inside the string
+$result = Strings::wordsCount('SG-1 returns from an off-world mission to P9Y-3C3 with Daniel Jackson', 1)
+
+// Returns an associative array, where the key is the numeric position of the word inside the string and the value is the actual word itself
+$result = Strings::wordsCount('SG-1 returns from an off-world mission to P9Y-3C3 with Daniel Jackson', 2)
 ```
 
 #### <a name="strings_length"></a> Method: `Strings::length()`
@@ -299,6 +317,18 @@ Reverses string.
 $string = Strings::reverse('SG-1 returns from an off-world mission');
 ```
 
+#### <a name="strings_segments"></a> Method: `Strings::segments()`
+
+Get array of segments from a string based on a delimiter.
+
+```php
+// Get array of segments from a string based on a predefined delimiter.
+$segments = Strings::segments('SG-1 returns from an off-world mission');
+
+// Get array of segments from a string based on a delimiter '-'.
+$segments = Strings::segments('SG-1 returns from an off-world mission', '-');
+```
+
 #### <a name="strings_segment"></a> Method: `Strings::segment()`
 
 Get a segment from a string based on a delimiter.
@@ -450,6 +480,21 @@ Cap a string with a single instance of a given value.
 
 ```php
 $result = Strings::finish('/movies/sg-1/season-5/episode-21', '/');
+```
+
+#### <a name="strings_hash"></a> Method: `Strings::hash()`
+
+Generate a hash string from the input string.
+
+```php
+// Get string hash with predefined settings
+$result = Strings::hash('SG-1 returns from an off-world mission');
+
+// Get string hash with hashed with sha256 algorithm
+$result = Strings::hash('SG-1 returns from an off-world mission', 'sha256');
+
+// Get string hash with hashed with sha256 algorithm and with raw output
+$result = Strings::hash('SG-1 returns from an off-world mission', 'sha256', true);
 ```
 
 ### License

@@ -9,7 +9,10 @@ use function array_reverse;
 use function array_shift;
 use function ctype_lower;
 use function explode;
+use function hash;
+use function hash_algos;
 use function implode;
+use function in_array;
 use function lcfirst;
 use function ltrim;
 use function mb_convert_case;
@@ -28,6 +31,7 @@ use function random_int;
 use function rtrim;
 use function str_pad;
 use function str_replace;
+use function str_word_count;
 use function strlen;
 use function strncmp;
 use function strpos;
@@ -88,7 +92,7 @@ class Strings
      */
     public static function quotesToEntities(string $string): string
     {
-        return str_replace(["\'", '"', "'", '"'], ['&#39;', '&quot;', '&#39;', '&quot;'], $str);
+        return str_replace(["\'", '"', "'", '"'], ['&#39;', '&quot;', '&#39;', '&quot;'], $string);
     }
 
     /**
@@ -278,6 +282,21 @@ class Strings
     }
 
     /**
+     * Return information about words used in a string
+     *
+     * @param  string $string   String
+     * @param  int    $format   Specify the return value of this function. The current supported values are:
+     *                          0 - returns the number of words found
+     *                          1 - returns an array containing all the words found inside the string
+     *                          2 - returns an associative array, where the key is the numeric position of the word inside the string and the value is the actual word itself
+     * @param  string $charlist A list of additional characters which will be considered as 'word'
+     */
+    public static function wordsCount(string $string, int $format = 0, string $charlist = '')
+    {
+        return str_word_count($string, $format, $charlist);
+    }
+
+    /**
      * Determine if a given string contains a given substring.
      *
      * @param  string          $haystack The string being checked.
@@ -385,15 +404,26 @@ class Strings
     }
 
     /**
+     * Get array of segments from a string based on a delimiter.
+     *
+     * @param string $string    String
+     * @param string $delimiter Delimeter
+     */
+    public static function segments(string $string, string $delimiter = ' '): array
+    {
+        return explode($delimiter, $string);
+    }
+
+    /**
      * Get a segment from a string based on a delimiter.
      * Returns an empty string when the offset doesn't exist.
      * Use a negative index to start counting from the last element.
      *
      * @param string $string    String
-     * @param string $delimiter Delimeter
      * @param int    $index     Index
+     * @param string $delimiter Delimeter
      */
-    public function segment(string $string, int $index, string $delimiter = ' '): string
+    public static function segment(string $string, int $index, string $delimiter = ' '): string
     {
         $segments = explode($delimiter, $string);
 
@@ -411,7 +441,7 @@ class Strings
      * @param string $string    String
      * @param string $delimiter Delimeter
      */
-    public function firstSegment(string $string, string $delimiter = ' '): string
+    public static function firstSegment(string $string, string $delimiter = ' '): string
     {
         return static::segment($string, 0, $delimiter);
     }
@@ -422,7 +452,7 @@ class Strings
      * @param string $string    String
      * @param string $delimiter Delimeter
      */
-    public function lastSegment(string $string, string $delimiter = ' '): string
+    public static function lastSegment(string $string, string $delimiter = ' '): string
     {
         return static::segment($string, -1, $delimiter);
     }
@@ -655,5 +685,22 @@ class Strings
         $quoted = preg_quote($cap, '/');
 
         return preg_replace('/(?:' . $quoted . ')+$/u', '', $string) . $cap;
+    }
+
+    /**
+     * Generate a hash string from the input string.
+     *
+     * @param  string $string     String
+     * @param  string $algorithm  Name of selected hashing algorithm (i.e. "md5", "sha256", "haval160,4", etc..).
+     *                            For a list of supported algorithms see hash_algos(). Default is md5.
+     * @param  string $raw_output When set to TRUE, outputs raw binary data. FALSE outputs lowercase hexits. Default is FALSE
+     */
+    public static function hash(string $string, string $algorithm = 'md5', bool $raw_output = false): string
+    {
+        if (in_array($algorithm, hash_algos())) {
+            return hash($algorithm, $string, $raw_output);
+        }
+
+        return $string;
     }
 }
