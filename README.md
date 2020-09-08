@@ -142,7 +142,7 @@ $string = Strings::normalizeNewLines('SG-1 returns from an off-world mission');
 
 #### <a name="strings_normalizeSpaces"></a> Method: `Strings::normalizeSpaces()`
 
-Standardize line endings to unix-like.
+Normalize white-spaces to a single space.
 
 ```php
 $string = Strings::normalizeSpaces('SG-1  returns  from  an  off-world  mission');
