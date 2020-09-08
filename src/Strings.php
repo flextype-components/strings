@@ -11,6 +11,8 @@ use function ctype_lower;
 use function explode;
 use function hash;
 use function hash_algos;
+use function htmlspecialchars;
+use function htmlspecialchars_decode;
 use function implode;
 use function in_array;
 use function lcfirst;
@@ -41,6 +43,8 @@ use function substr_replace;
 use function trim;
 use function ucwords;
 
+use const ENT_IGNORE;
+use const ENT_NOQUOTES;
 use const MB_CASE_TITLE;
 use const STR_PAD_BOTH;
 use const STR_PAD_LEFT;
@@ -93,6 +97,16 @@ class Strings
     public static function quotesToEntities(string $string): string
     {
         return str_replace(["\'", '"', "'", '"'], ['&#39;', '&quot;', '&#39;', '&quot;'], $string);
+    }
+
+    /**
+     * Removes all invalid UTF-8 characters from a string.
+     *
+     * @param  string $string String
+     */
+    public static function fixEncoding(string $string): string
+    {
+        return htmlspecialchars_decode(htmlspecialchars($string, ENT_NOQUOTES | ENT_IGNORE, 'UTF-8'), ENT_NOQUOTES);
     }
 
     /**

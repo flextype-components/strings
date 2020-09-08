@@ -28,6 +28,7 @@ use Flextype\Component\Strings;
 | <a href="#strings_reduceSlashes">`Strings::reduceSlashes()`</a> | Reduces multiple slashes in a string to single slashes. |
 | <a href="#strings_stripQuotes">`Strings::stripQuotes()`</a> | Removes single and double quotes from a string. |
 | <a href="#strings_quotesToEntities">`Strings::quotesToEntities()`</a> | Convert single and double quotes to entities. |
+| <a href="#strings_fixEncoding">`Strings::fixEncoding()`</a> | Removes all invalid UTF-8 characters from a string. |
 | <a href="#strings_random">`Strings::random()`</a> | Creates a random string of characters. |
 | <a href="#strings_increment">`Strings::increment()`</a> | Add's `_1` to a string or increment the ending number to allow `_2`, `_3`, etc. |
 | <a href="#strings_wordsCount">`Strings::wordsCount()`</a> | Return information about words used in a string. |
@@ -110,6 +111,14 @@ Convert single and double quotes to entities.
 
 ```php
 $string = Strings::quotesToEntities('some "text" here');
+```
+
+#### <a name="strings_fixEncoding"></a> Method: `Strings::fixEncoding()`
+
+Removes all invalid UTF-8 characters from a string.
+
+```php
+$string = Strings::fixEncoding('An invalid UTF-8 string here');
 ```
 
 #### <a name="strings_random"></a> Method: `Strings::random()`
