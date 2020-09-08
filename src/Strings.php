@@ -100,6 +100,16 @@ class Strings
     }
 
     /**
+     * Checks if the string is valid in UTF-8 encoding.
+     *
+     * @param  string $string String
+     */
+    public static function validEncoding(string $string): bool
+    {
+        return $string === static::fixEncoding($string);
+    }
+
+    /**
      * Removes all invalid UTF-8 characters from a string.
      *
      * @param  string $string String
