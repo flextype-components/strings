@@ -231,7 +231,7 @@ class Strings
         }
 
         if (! ctype_lower($string)) {
-            $value = preg_replace('/\s+/u', '', ucwords($string));
+            $string = preg_replace('/\s+/u', '', ucwords($string));
 
             $string = static::lower(preg_replace('/(.)(?=[A-Z])/u', '$1' . $delimiter, $string));
         }
