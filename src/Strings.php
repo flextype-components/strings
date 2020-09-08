@@ -404,13 +404,24 @@ class Strings
     }
 
     /**
+     * Get array of segments from a string based on a delimiter.
+     *
+     * @param string $string    String
+     * @param string $delimiter Delimeter
+     */
+    public static function segments(string $string, string $delimiter = ' '): array
+    {
+        return explode($delimiter, $string);
+    }
+
+    /**
      * Get a segment from a string based on a delimiter.
      * Returns an empty string when the offset doesn't exist.
      * Use a negative index to start counting from the last element.
      *
      * @param string $string    String
-     * @param string $delimiter Delimeter
      * @param int    $index     Index
+     * @param string $delimiter Delimeter
      */
     public static function segment(string $string, int $index, string $delimiter = ' '): string
     {

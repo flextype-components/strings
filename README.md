@@ -49,6 +49,7 @@ use Flextype\Component\Strings;
 | <a href="#strings_trimLeft">`Strings::trimLeft()`</a> | Strip whitespace (or other characters) from the beginning of a string. |
 | <a href="#strings_capitalize">`Strings::capitalize()`</a> | Converts the first character of every word of string to upper case and the others to lower case. |
 | <a href="#strings_reverse">`Strings::reverse()`</a> | Reverses string. |
+| <a href="#strings_segments">`Strings::segments()`</a> | Get array of segments from a string based on a delimiter. |
 | <a href="#strings_segment">`Strings::segment()`</a> | Get a segment from a string based on a delimiter. Returns an empty string when the offset doesn't exist. Use a negative index to start counting from the last element. |
 | <a href="#strings_firstSegment">`Strings::firstSegment()`</a> | Get the first segment from a string based on a delimiter. |
 | <a href="#strings_lastSegment">`Strings::lastSegment()`</a> | Get the last segment from a string based on a delimiter. |
@@ -314,6 +315,18 @@ Reverses string.
 
 ```php
 $string = Strings::reverse('SG-1 returns from an off-world mission');
+```
+
+#### <a name="strings_segments"></a> Method: `Strings::segments()`
+
+Get array of segments from a string based on a delimiter.
+
+```php
+// Get array of segments from a string based on a predefined delimiter.
+$segments = Strings::segments('SG-1 returns from an off-world mission');
+
+// Get array of segments from a string based on a delimiter '-'.
+$segments = Strings::segments('SG-1 returns from an off-world mission', '-');
 ```
 
 #### <a name="strings_segment"></a> Method: `Strings::segment()`
