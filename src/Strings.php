@@ -88,7 +88,7 @@ class Strings
      */
     public static function quotesToEntities(string $string): string
     {
-        return str_replace(["\'", '"', "'", '"'], ['&#39;', '&quot;', '&#39;', '&quot;'], $str);
+        return str_replace(["\'", '"', "'", '"'], ['&#39;', '&quot;', '&#39;', '&quot;'], $string);
     }
 
     /**
