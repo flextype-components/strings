@@ -519,6 +519,22 @@ class Strings
     }
 
     /**
+     * Get the portion of a string between two given values.
+     *
+     * @param  string $string String
+     * @param  string $from   From
+     * @param  string $to     To
+     */
+    public static function between(string $string, string $from, string $to): string
+    {
+        if ($from === '' || $to === '') {
+            return $string;
+        }
+
+        return static::beforeLast(static::after($string, $from), $to);
+    }
+
+    /**
      * Get the portion of a string before the first occurrence of a given value.
      *
      * @param string $string String

@@ -58,6 +58,7 @@ use Flextype\Component\Strings;
 | <a href="#strings_segment">`Strings::segment()`</a> | Get a segment from a string based on a delimiter. Returns an empty string when the offset doesn't exist. Use a negative index to start counting from the last element. |
 | <a href="#strings_firstSegment">`Strings::firstSegment()`</a> | Get the first segment from a string based on a delimiter. |
 | <a href="#strings_lastSegment">`Strings::lastSegment()`</a> | Get the last segment from a string based on a delimiter. |
+| <a href="#strings_between">`Strings::between()`</a> | Get the portion of a string between two given values. |
 | <a href="#strings_before">`Strings::before()`</a> | Get the portion of a string before the first occurrence of a given value. |
 | <a href="#strings_beforeLast">`Strings::beforeLast()`</a> | Get the portion of a string before the last occurrence of a given value. |
 | <a href="#strings_after">`Strings::after()`</a> | Return the remainder of a string after the first occurrence of a given value. |
@@ -413,6 +414,14 @@ $string = Strings::lastSegment('SG-1 returns from an off-world mission');
 
 // Get a last segment from a string based on a delimiter '-'.
 $string = Strings::lastSegment('SG-1 returns from an off-world mission', '-');
+```
+
+#### <a name="strings_between"></a> Method: `Strings::between()`
+
+Get the portion of a string between two given values.
+
+```php
+$string = Strings::between('SG-1 returns from an off-world mission', 'SG-1', 'from');
 ```
 
 #### <a name="strings_before"></a> Method: `Strings::before()`
