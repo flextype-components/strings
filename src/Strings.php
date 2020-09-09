@@ -11,6 +11,8 @@ use function ctype_lower;
 use function explode;
 use function hash;
 use function hash_algos;
+use function htmlspecialchars;
+use function htmlspecialchars_decode;
 use function implode;
 use function in_array;
 use function lcfirst;
@@ -41,6 +43,8 @@ use function substr_replace;
 use function trim;
 use function ucwords;
 
+use const ENT_IGNORE;
+use const ENT_NOQUOTES;
 use const MB_CASE_TITLE;
 use const STR_PAD_BOTH;
 use const STR_PAD_LEFT;
@@ -93,6 +97,46 @@ class Strings
     public static function quotesToEntities(string $string): string
     {
         return str_replace(["\'", '"', "'", '"'], ['&#39;', '&quot;', '&#39;', '&quot;'], $string);
+    }
+
+    /**
+     * Checks if the string is valid in UTF-8 encoding.
+     *
+     * @param  string $string String
+     */
+    public static function validEncoding(string $string): bool
+    {
+        return $string === static::fixEncoding($string);
+    }
+
+    /**
+     * Removes all invalid UTF-8 characters from a string.
+     *
+     * @param  string $string String
+     */
+    public static function fixEncoding(string $string): string
+    {
+        return htmlspecialchars_decode(htmlspecialchars($string, ENT_NOQUOTES | ENT_IGNORE, 'UTF-8'), ENT_NOQUOTES);
+    }
+
+    /**
+     * Standardize line endings to unix-like.
+     *
+     * @param  string $string String
+     */
+    public static function normalizeNewLines(string $string): string
+    {
+        return str_replace(["\r\n", "\r"], "\n", $string);
+    }
+
+    /**
+     * Normalize white-spaces to a single space.
+     *
+     * @param  string $string String
+     */
+    public static function normalizeSpaces(string $string): string
+    {
+        return preg_replace('/\s+/', ' ', $string);
     }
 
     /**
@@ -231,7 +275,7 @@ class Strings
         }
 
         if (! ctype_lower($string)) {
-            $value = preg_replace('/\s+/u', '', ucwords($string));
+            $string = preg_replace('/\s+/u', '', ucwords($string));
 
             $string = static::lower(preg_replace('/(.)(?=[A-Z])/u', '$1' . $delimiter, $string));
         }
@@ -328,6 +372,23 @@ class Strings
         }
 
         return true;
+    }
+
+    /**
+     * Determine if a given string contains any of array values.
+     *
+     * @param  string   $haystack The string being checked.
+     * @param  string[] $needles  The array of strings to find in haystack.
+     */
+    public static function containsAny(string $haystack, array $needles): bool
+    {
+        foreach ($needles as $needle) {
+            if (static::contains($haystack, $needle)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -455,6 +516,22 @@ class Strings
     public static function lastSegment(string $string, string $delimiter = ' '): string
     {
         return static::segment($string, -1, $delimiter);
+    }
+
+    /**
+     * Get the portion of a string between two given values.
+     *
+     * @param  string $string String
+     * @param  string $from   From
+     * @param  string $to     To
+     */
+    public static function between(string $string, string $from, string $to): string
+    {
+        if ($from === '' || $to === '') {
+            return $string;
+        }
+
+        return static::beforeLast(static::after($string, $from), $to);
     }
 
     /**

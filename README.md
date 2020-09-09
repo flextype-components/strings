@@ -28,6 +28,10 @@ use Flextype\Component\Strings;
 | <a href="#strings_reduceSlashes">`Strings::reduceSlashes()`</a> | Reduces multiple slashes in a string to single slashes. |
 | <a href="#strings_stripQuotes">`Strings::stripQuotes()`</a> | Removes single and double quotes from a string. |
 | <a href="#strings_quotesToEntities">`Strings::quotesToEntities()`</a> | Convert single and double quotes to entities. |
+| <a href="#strings_validEncoding">`Strings::validEncoding()`</a> | Checks if the string is valid in UTF-8 encoding. |
+| <a href="#strings_fixEncoding">`Strings::fixEncoding()`</a> | Removes all invalid UTF-8 characters from a string. |
+| <a href="#strings_normalizeNewLines">`Strings::normalizeNewLines()`</a> | Standardize line endings to unix-like. |
+| <a href="#strings_normalizeSpaces">`Strings::normalizeSpaces()`</a> | Normalize white-spaces to a single space. |
 | <a href="#strings_random">`Strings::random()`</a> | Creates a random string of characters. |
 | <a href="#strings_increment">`Strings::increment()`</a> | Add's `_1` to a string or increment the ending number to allow `_2`, `_3`, etc. |
 | <a href="#strings_wordsCount">`Strings::wordsCount()`</a> | Return information about words used in a string. |
@@ -42,6 +46,7 @@ use Flextype\Component\Strings;
 | <a href="#strings_words">`Strings::words()`</a> | Limit the number of words in a string. |
 | <a href="#strings_contains">`Strings::contains()`</a> | Determine if a given string contains a given substring. |
 | <a href="#strings_containsAll">`Strings::containsAll()`</a> | Determine if a given string contains all array values. |
+| <a href="#strings_containsAny">`Strings::containsAny()`</a> | Determine if a given string contains any of array values. |
 | <a href="#strings_substr">`Strings::substr()`</a> | Returns the portion of string specified by the start and length parameters. |
 | <a href="#strings_ucfirst">`Strings::ucfirst()`</a> | Converts the first character of a UTF-8 string to upper case and leaves the other characters unchanged. |
 | <a href="#strings_trim">`Strings::trim()`</a> | Strip whitespace (or other characters) from the beginning and end of a string. |
@@ -53,6 +58,7 @@ use Flextype\Component\Strings;
 | <a href="#strings_segment">`Strings::segment()`</a> | Get a segment from a string based on a delimiter. Returns an empty string when the offset doesn't exist. Use a negative index to start counting from the last element. |
 | <a href="#strings_firstSegment">`Strings::firstSegment()`</a> | Get the first segment from a string based on a delimiter. |
 | <a href="#strings_lastSegment">`Strings::lastSegment()`</a> | Get the last segment from a string based on a delimiter. |
+| <a href="#strings_between">`Strings::between()`</a> | Get the portion of a string between two given values. |
 | <a href="#strings_before">`Strings::before()`</a> | Get the portion of a string before the first occurrence of a given value. |
 | <a href="#strings_beforeLast">`Strings::beforeLast()`</a> | Get the portion of a string before the last occurrence of a given value. |
 | <a href="#strings_after">`Strings::after()`</a> | Return the remainder of a string after the first occurrence of a given value. |
@@ -109,6 +115,38 @@ Convert single and double quotes to entities.
 
 ```php
 $string = Strings::quotesToEntities('some "text" here');
+```
+
+#### <a name="strings_validEncoding"></a> Method: `Strings::validEncoding()`
+
+Checks if the string is valid in UTF-8 encoding.
+
+```php
+$result = Strings::validEncoding('An UTF-8 string here');
+```
+
+#### <a name="strings_fixEncoding"></a> Method: `Strings::fixEncoding()`
+
+Removes all invalid UTF-8 characters from a string.
+
+```php
+$string = Strings::fixEncoding('An invalid UTF-8 string here');
+```
+
+#### <a name="strings_normalizeNewLines"></a> Method: `Strings::normalizeNewLines()`
+
+Standardize line endings to unix-like.
+
+```php
+$string = Strings::normalizeNewLines('SG-1 returns from an off-world mission');
+```
+
+#### <a name="strings_normalizeSpaces"></a> Method: `Strings::normalizeSpaces()`
+
+Normalize white-spaces to a single space.
+
+```php
+$string = Strings::normalizeSpaces('SG-1  returns  from  an  off-world  mission');
 ```
 
 #### <a name="strings_random"></a> Method: `Strings::random()`
@@ -257,6 +295,14 @@ Determine if a given string contains a given array of substrings.
 $result = Strings::containsAll('SG-1 returns from an off-world mission to P9Y-3C3', ['SG-1', 'P9Y-3C3']);
 ```
 
+#### <a name="strings_containsAny"></a> Method: `Strings::containsAny()`
+
+Determine if a given string contains any of array values.
+
+```php
+$result = Strings::containsAny('SG-1 returns from an off-world mission to P9Y-3C3', ['SG-1', 'P9Y-3C3']);
+```
+
 #### <a name="strings_substr"></a> Method: `Strings::substr()`
 
 Returns the portion of string specified by the start and length parameters.
@@ -368,6 +414,14 @@ $string = Strings::lastSegment('SG-1 returns from an off-world mission');
 
 // Get a last segment from a string based on a delimiter '-'.
 $string = Strings::lastSegment('SG-1 returns from an off-world mission', '-');
+```
+
+#### <a name="strings_between"></a> Method: `Strings::between()`
+
+Get the portion of a string between two given values.
+
+```php
+$string = Strings::between('SG-1 returns from an off-world mission', 'SG-1', 'from');
 ```
 
 #### <a name="strings_before"></a> Method: `Strings::before()`
