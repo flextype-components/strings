@@ -79,10 +79,6 @@ use Flextype\Component\Strings;
 
 #### <a name="strings_stripSpaces"></a> Method: `Strings::stripSpaces()`
 
-```php
-public static function stripSpaces(string $string): string
-```
-
 Strip all whitespaces from the given string.
 
 ```php
